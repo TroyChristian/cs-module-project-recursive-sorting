@@ -54,7 +54,35 @@ def merge_sort(arr):
 
 # implement an in-place merge sort algorithm
 def merge_in_place(arr, start, mid, end):
-    # Your code here
+    left_array = arr[start:mid + 1]
+    right_array = arr[mid + 1: end + 1]
+
+    left_index = 0
+    right_index = 0
+    sorted_index = start
+
+    while left_index < len(left_array) and right_index < len(right_array):
+        if left_array[left_index] <= right_array[right_index]:
+            arr[sorted_index] = left_array[left_index]
+            left_index += 1
+
+        else:
+            arr[sorted_index] = right_array[right_index]
+            right_index += 1
+
+        sorted_index += 1
+
+    while left_index < len(left_array):
+        arr[sorted_index] = left_array[left_index]
+        left_index += 1
+        sorted_index += 1
+
+    while right_index < len(right_array):
+        arr[sorted_index] = right_array[right_index]
+        right_index += 1
+        sorted_index += 1
+
+        
 
 
     return arr
