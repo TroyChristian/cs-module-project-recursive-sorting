@@ -38,12 +38,19 @@ def merge(arrA, arrB):
 def merge_sort(arr):
     if len(arr) <= 1:
         return arr
+
+    left = arr[:len(arr) // 2]
+    right = arr[len(arr) // 2]
+
+    left = merge_sort(left)
+    right = merge_sort(right)
+
+    return merge(left,right) 
     
     
 
 
-    return arr
-
+   
 
 # implement an in-place merge sort algorithm
 def merge_in_place(arr, start, mid, end):
