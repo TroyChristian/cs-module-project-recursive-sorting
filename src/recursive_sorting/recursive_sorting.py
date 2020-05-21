@@ -82,14 +82,25 @@ def merge_in_place(arr, start, mid, end):
         right_index += 1
         sorted_index += 1
 
-        
+
 
 
     return arr
 
 
-def merge_sort_in_place(arr, l, r):
+def merge_sort_in_place(arr, left, right):
     # Your code here
+
+    if left >= right:
+        return arr
+
+    mid = (left + right) // 2
+    merge_sort_in_place(arr, left, mid)
+    merge_sort_in_place(arr, mid + 1, right)
+    merge_in_place(arr, left, mid, right)
+    
+    
+
 
 
     return arr
